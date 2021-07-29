@@ -1,34 +1,20 @@
-import React from 'react';
-import { Logo } from '../src/theme/Logo';
-import { MenuWrapper } from '../src/components/commons/menu/styles/MenuWrapper';
+import Menu from '../src/components/commons/Menu'
 
-export default function Menu() {
+// import styled from 'styled-components'
+// const Title = styled.h1`
+//   font-size: 50px;
+//   color: ${({ theme }) => theme.colors.primary};
+// `
+
+export default function Home() {
   return (
-    <MenuWrapper>
-      <MenuWrapper.LeftSide> {/* MenuWrapper.LeftSide */}
-        <Logo />
-      </MenuWrapper.LeftSide>
-      <MenuWrapper.CentralSide as="ul"> {/* MenuWrapper.CentralSide */}
-        {[
-          { url: '/', name: 'Home' },
-          { url: '/faq', name: 'Perguntas Frequentes' },
-          { url: '/sobre', name: 'Sobre' },
-        ].map((link) => (
-          <li key={link.url}>
-            <a href={link.url}>
-              {link.name}
-            </a>
-          </li>
-        ))}
-      </MenuWrapper.CentralSide>
-      <MenuWrapper.RightSide> {/* MenuWrapper.RightSide */}
-        <button type="button">
-          Entrar
-        </button>
-        <button type="button">
-          Cadastrar
-        </button>
-      </MenuWrapper.RightSide>
-    </MenuWrapper>
-  );
-} 
+    <div>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+      />
+      <Menu />
+    </div>
+  )
+}
