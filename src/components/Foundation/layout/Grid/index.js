@@ -95,7 +95,7 @@ const Grid = {
         : '',
     });
   }}
-    ${function ({ offset }) {
+    ${({ offset }) => {
     if (typeof offset === 'number') {
       return css`
           margin-left: ${(100 * offset) / 12}%;

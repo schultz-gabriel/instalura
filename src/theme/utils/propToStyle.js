@@ -3,7 +3,7 @@ import breakpointsMedia from './breakpointMedia';
 
 function propToStyle(propName) {
   // eslint-disable-next-line consistent-return
-  return function (props) {
+  return (props) => {
     const propValue = props[propName];
 
     if (typeof propValue === 'string' || typeof propValue === 'number') {
