@@ -42,10 +42,10 @@ export const LightColors = {
 export const DarkColors = {
   background: {
     light: {
-      color: '#222',
+      color: '#000',
     },
     main: {
-      color: '#F2F2F2',
+      color: '#000',
     },
   },
   borders: {
