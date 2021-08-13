@@ -83,9 +83,7 @@ export default function Home() {
               display="block"
               variant="primary.main"
               onClick={() => {
-                // isModalOpen = true;
                 setModalState(!isModalOpen); // novo state sendo atribuido
-                console.log('isModalOpen', isModalOpen);
               }}
             >
               Cadastrar
