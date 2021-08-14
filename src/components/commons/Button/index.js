@@ -43,6 +43,10 @@ const Button = styled.button`
   
   ${propToStyle('margin')}
   ${propToStyle('display')}
+  ${propToStyle('position')}
+  ${propToStyle('top')}
+  ${propToStyle('right')}
+
 
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover,
