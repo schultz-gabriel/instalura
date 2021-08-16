@@ -6,10 +6,20 @@ import Box from '../../Foundation/layout/Box';
 import Grid from '../../Foundation/layout/Grid';
 import Text from '../../Foundation/Text';
 
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
 function FormContent(onClose) {
+  const [isFormSubmited, setIsFormSubmited] = React.useState(false);
+  const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
+
   const [userInfo, setUserInfo] = React.useState({
-    usuario: 'omariosouto',
-    email: 'devsoutinho@gmail.com',
+    usuario: 'omariosouto1002',
+    nome: 'Mario Souto',
   });
 
   function handleChange(event) {
@@ -20,7 +30,7 @@ function FormContent(onClose) {
     });
   }
 
-  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.email.length === 0;
+  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0;
 
   return (
     <>
@@ -37,7 +47,35 @@ function FormContent(onClose) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          console.log('O formulário ta pronto, vamos cadastrar de fato o usuario');
+          setIsFormSubmited(true);
+          const userDTO = {
+            username: userInfo.usuario,
+            name: userInfo.nome,
+          };
+
+          fetch('https://instalura-api.vercel.app/api/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userDTO),
+          })
+            .then((respostaDoServidor) => {
+              if (respostaDoServidor.ok) {
+                return respostaDoServidor.json();
+              }
+              throw new Error('Não foi possível cadastrar o usuário agora :(');
+            })
+            .then((respostaConvertidaEmObjeto) => {
+              setSubmissionStatus(formStates.DONE);
+              // eslint-disable-next-line no-console
+              console.log(respostaConvertidaEmObjeto);
+            })
+            .catch((error) => {
+              setSubmissionStatus(formStates.ERROR);
+              // eslint-disable-next-line no-console
+              console.error(error);
+            });
         }}
       >
 
@@ -60,9 +98,9 @@ function FormContent(onClose) {
 
         <div>
           <TextField
-            placeholder="Email"
-            name="email"
-            value={userInfo.email}
+            placeholder="Nome"
+            name="nome"
+            value={userInfo.nome}
             onChange={handleChange}
           />
         </div>
@@ -84,6 +122,20 @@ function FormContent(onClose) {
         >
           Cadastrar
         </Button>
+        {isFormSubmited && submissionStatus === formStates.DONE && (
+        <Box>
+          Deu tudo certo!
+        </Box>
+        )}
+
+        {isFormSubmited && submissionStatus === formStates.ERROR && (
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
+          Deu tudo errado!
+        </Box>
+        )}
       </form>
     </>
   );
