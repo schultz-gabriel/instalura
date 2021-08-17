@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { Lottie } from '@crello/react-lottie';
+import errorAnimation from './animations/error.json';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import Box from '../../Foundation/layout/Box';
@@ -124,7 +126,12 @@ function FormContent(onClose) {
         </Button>
         {isFormSubmited && submissionStatus === formStates.DONE && (
         <Box>
-          Deu tudo certo!
+          <Lottie
+            width="150px"
+            height="150px"
+            config={{ animationData: errorAnimation, loop: true, autoplay: true }}
+          />
+          {/* https://lottiefiles.com/43920-success-alert-icon */}
         </Box>
         )}
 
@@ -133,7 +140,12 @@ function FormContent(onClose) {
           display="flex"
           justifyContent="center"
         >
-          Deu tudo errado!
+          <Lottie
+            width="150px"
+            height="150px"
+            config={{ animationData: errorAnimation, loop: true, autoplay: true }}
+          />
+          {/* https://lottiefiles.com/43920-success-alert-icon */}
         </Box>
         )}
       </form>
