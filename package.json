@@ -4,7 +4,9 @@
     "dev": "next",
     "build": "next build",
     "export": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --ignore-path .gitignore .",
+    "custom-script": "node ./script-test.js"
   },
   "dependencies": {
     "framer-motion": "^4.1.17",
@@ -14,6 +16,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "shelljs": "^0.8.4",
     "styled-components": "^5.2.3",
     "styled-normalize": "^8.0.7"
   },
