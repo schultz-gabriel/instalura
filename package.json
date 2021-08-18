@@ -8,7 +8,16 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "custom-script": "node ./script-test.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint:fix"
+    ],
+    "*.jsx": [
+      "yarn lint:fix"
+    ]
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
@@ -32,7 +41,8 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.1"
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2"
   },
   "husky": {
     "hooks": {
