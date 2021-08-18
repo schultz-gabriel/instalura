@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
 import { Lottie } from '@crello/react-lottie';
 import errorAnimation from './animations/error.json';
 import Button from '../../commons/Button';
