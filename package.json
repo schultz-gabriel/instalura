@@ -6,7 +6,9 @@
     "export": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "custom-script": "node ./script-test.js"
+    "lint:fix": "eslint --fix --ignore-path .gitignore .",
+    "custom-script": "node ./script-test.js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
