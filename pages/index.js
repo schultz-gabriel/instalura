@@ -1,10 +1,10 @@
 import React from 'react';
 import Footer from '../src/components/commons/Footer';
 import Menu from '../src/components/commons/Menu';
-import Text from '../src/components/Foundation/Text';
+import Text from '../src/components/foundations/Text';
 import Button from '../src/components/commons/Button';
-import Box from '../src/components/Foundation/layout/Box';
-import Grid from '../src/components/Foundation/layout/Grid';
+import Box from '../src/components/foundations/layout/Box';
+import Grid from '../src/components/foundations/layout/Grid';
 import Modal from '../src/components/commons/Modal';
 import FormCadastro from '../src/components/patterns/FormCadastro';
 
