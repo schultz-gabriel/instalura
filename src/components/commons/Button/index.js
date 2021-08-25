@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariantsMap } from '../../Foundation/Text';
+import { TextStyleVariantsMap } from '../../foundations/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointMedia';
 import propToStyle from '../../../theme/utils/propToStyle';
 import Link from '../Link';
