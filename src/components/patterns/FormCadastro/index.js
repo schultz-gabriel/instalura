@@ -4,9 +4,9 @@ import { Lottie } from '@crello/react-lottie';
 import errorAnimation from './animations/error.json';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
-import Box from '../../Foundation/layout/Box';
-import Grid from '../../Foundation/layout/Grid';
-import Text from '../../Foundation/Text';
+import Box from '../../foundations/layout/Box';
+import Grid from '../../foundations/layout/Grid';
+import Text from '../../foundations/Text';
 
 const formStates = {
   DEFAULT: 'DEFAULT',
