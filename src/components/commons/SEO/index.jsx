@@ -10,7 +10,8 @@ export default function SEO({ headTitle }) {
     : baseTitle;
 
   const description = 'Aprenda Programação, Front-end, Data Science, UX, DevOps, Marketing, Inovação e Gestão na maior plataforma de tecnologia do Brasil';
-  const image = 'https://www.alura.com.br/assets/img/alura-share.1571848411.png';
+  // criadora da imagem abaixo: https://github.com/carolandrade1
+  const image = 'https://i.imgur.com/c2kcPN7.png';
   const urlBase = 'urldomeuprojeto.com.br';
 
   return (
