@@ -1,9 +1,11 @@
-import React from 'react';
+// import React from 'react';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
+import ComingSoon from '../src/components/screens/UnderConnstructionScreen';
 
-export default function PageSobre() {
-  return (
-    <div>
-      Página Sobre
-    </div>
-  );
-}
+export default websitePageHOC(ComingSoon, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Sobre',
+    },
+  },
+});
