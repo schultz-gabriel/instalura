@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Lottie } from '@crello/react-lottie';
 import errorAnimation from './animations/error.json';
 import Button from '../../commons/Button';
@@ -24,14 +24,16 @@ function FormContent(onClose) {
     nome: 'Mario Souto',
   });
 
-  function handleChange(event) {
-    const fieldName = event.target.getAttribute('name');
-    setUserInfo({
-      ...userInfo,
-      [fieldName]: event.target.value,
-    });
-  }
-
+  const handleChange = useCallback(
+    (event) => {
+      const { name, value } = event.target;
+      setUserInfo((state) => ({
+        ...state,
+        [name]: value,
+      }));
+    },
+    [userInfo],
+  );
   const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0;
 
   return (
