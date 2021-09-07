@@ -10,7 +10,8 @@
     "custom-script": "node ./script-test.js",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "commit": "cz"
+    "commit": "cz",
+    "test:integration:open": "cypress open"
   },
   "lint-staged": {
     "*.js": [
@@ -37,10 +38,12 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "cypress": "^8.3.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "^11.1.2",
+    "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.25.1",
