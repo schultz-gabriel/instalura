@@ -10,28 +10,30 @@ async function HttpClient(url, { headers, body, ...options }) {
     body: JSON.stringify(body),
     ...options,
   })
-    .then((respostaDoServer) => {
-      if (respostaDoServer.ok) {
-        return respostaDoServer.json();
+    .then((respostaDoServidor) => {
+      if (respostaDoServidor.ok) {
+        return respostaDoServidor.json();
       }
 
-      throw new Error('Falha em pegar os dados do servidor :(');
+      throw new Error('Erro ao autenticar');
     });
 }
 
 const BASE_URL = isStagingEnv
   // Back End de DEV
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
   // Back End de PROD
-  : 'https://instalura-api.omariosouto.vercel.app';
+  : 'https://instalura-api-git-master-omariosouto.vercel.app';
+  // : 'https://instalura-api.omariosouto.vercel.app';
 
 const loginService = {
-  async login({ username, password }) {
-    return HttpClient(`${BASE_URL}/api/login`, {
+  async login({ username, password },
+    HttpClienteModule = HttpClient) {
+    return HttpClienteModule(`${BASE_URL}/api/login`, {
       method: 'POST',
       body: {
-        username, // 'omariosouto'
-        password, // 'senhasegura'
+        username,
+        password,
       },
     })
       .then((respostaConvertida) => {
