@@ -10,8 +10,7 @@ export default function SEO({ headTitle }) {
     : baseTitle;
 
   const description = 'Aprenda Programação, Front-end, Data Science, UX, DevOps, Marketing, Inovação e Gestão na maior plataforma de tecnologia do Brasil';
-  // criadora da imagem abaixo: https://github.com/carolandrade1
-  const image = 'https://i.imgur.com/c2kcPN7.png';
+  const image = 'https://i.imgur.com/OuW7vVT.png';
   const urlBase = 'urldomeuprojeto.com.br';
 
   return (
