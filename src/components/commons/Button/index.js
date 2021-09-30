@@ -23,7 +23,7 @@ const ButtonWrapper = styled.button`
   padding: 12px 26px;
   font-weight: bold;
   opacity: 1;
-  transition: opacity ${({ theme }) => theme.transition};
+  transition: ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
   
   ${breakpointsMedia({
@@ -49,6 +49,8 @@ const ButtonWrapper = styled.button`
   ${propToStyle('position')}
   ${propToStyle('top')}
   ${propToStyle('right')}
+  ${propToStyle('order')}
+
 
 
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}

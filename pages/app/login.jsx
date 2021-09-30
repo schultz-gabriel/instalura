@@ -7,7 +7,7 @@ export default websitePageHOC(LoginScreen, {
       headTitle: 'Login',
     },
     menuProps: {
-      display: false,
+      display: true,
     },
     pageBoxProps: {
       backgroundImage: 'url(/images/bubbles.svg)',
