@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Footer from '../../commons/Footer';
 import Menu from '../../commons/Menu';
+import LoggedMenu from '../../commons/LoggedMenu';
 import Modal from '../../commons/Modal';
 import Box from '../../foundations/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
@@ -63,8 +64,15 @@ export default function WebsitePageWrapper({
             onCadastrarClick={() => setModalState(true)}
           />
         )}
+        {menuProps.logged && (
+          <LoggedMenu
+            onCadastrarClick={() => setModalState(true)}
+          />
+        )}
         {children}
-        <Footer />
+        {menuProps.display && (
+          <Footer />
+        )}
       </Box>
     </WebsitePageContext.Provider>
   );
@@ -75,6 +83,7 @@ WebsitePageWrapper.defaultProps = {
   pageBoxProps: {},
   menuProps: {
     display: true,
+    logged: false,
   },
   messages: {},
 };
@@ -85,6 +94,7 @@ WebsitePageWrapper.propTypes = {
   }),
   menuProps: PropTypes.shape({
     display: PropTypes.bool,
+    logged: PropTypes.bool,
   }),
   pageBoxProps: PropTypes.shape({
     backgroundImage: PropTypes.string,

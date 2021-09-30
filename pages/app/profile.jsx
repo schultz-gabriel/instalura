@@ -3,12 +3,14 @@ import authService from '../../src/services/auth/authService';
 import userService from '../../src/services/user/UserService';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-function ProfilePage(props) {
+function ProfilePage(
+  // props
+) {
   return (
     <div>
       Página de Profile!
       <pre>
-        {JSON.stringify(props, null, 4)}
+        {/* {JSON.stringify(props, null, 4)} */}
       </pre>
       <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
     </div>
@@ -48,6 +50,7 @@ export default websitePageHOC(ProfilePage, {
     },
     menuProps: {
       display: false,
+      logged: true,
     },
     pageBoxProps: {
       backgroundImage: 'url(/images/bubbles.svg)',
