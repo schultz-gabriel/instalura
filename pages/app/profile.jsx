@@ -1,21 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import authService from '../../src/services/auth/authService';
 import userService from '../../src/services/user/UserService';
+import ProfilePage from '../../src/components/screens/ProfilePage';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
-
-function ProfilePage(
-  // props
-) {
-  return (
-    <div>
-      Página de Profile!
-      <pre>
-        {/* {JSON.stringify(props, null, 4)} */}
-      </pre>
-      <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
-    </div>
-  );
-}
 
 export async function getServerSideProps(ctx) {
   const auth = authService(ctx);

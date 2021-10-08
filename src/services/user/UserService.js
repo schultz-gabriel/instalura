@@ -3,12 +3,13 @@ import HttpClient from '../../infra/http/HttpClient';
 import authService from '../auth/authService';
 
 const BASE_URL = isStagingEnv
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
-  : 'https://instalura-api.omariosouto.vercel.app';
+  ? 'https://instalura-api.vercel.app/'
+  : 'https://instalura-api.vercel.app/';
 
 const userService = {
   async getProfilePage(ctx) {
     const url = `${BASE_URL}/api/users/posts`;
+    console.log(url);
     try {
       const token = await authService(ctx).getToken();
       const response = await HttpClient(url, {
@@ -19,6 +20,9 @@ const userService = {
       return {
         user: {
           totalLikes: 100,
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          followers: 2000,
+          following: 100,
         },
         posts: response.data,
       };
