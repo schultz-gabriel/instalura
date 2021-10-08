@@ -30,6 +30,7 @@ const Container = styled.div`
   ${propToStyle('display')}
   ${propToStyle('flex')}
   ${propToStyle('alignItems')}
+  ${propToStyle('padding')}
 `;
 
 const Grid = {
