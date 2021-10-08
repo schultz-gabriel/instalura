@@ -21,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
     }
+    ul{
+        padding:0;
+    }
 `;
 
 export { GlobalStyle as default };

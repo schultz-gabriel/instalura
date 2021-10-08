@@ -14,12 +14,14 @@ const Box = styled.div`
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
   ${propToStyle('width')}
+  ${propToStyle('height')}
   ${propToStyle('listStyle')}
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}
   ${propToStyle('marginTop')}
   ${propToStyle('marginBottom')}
   ${propToStyle('marginRight')}
+  ${propToStyle('position')}
   ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 `;
 export { Box as default };
