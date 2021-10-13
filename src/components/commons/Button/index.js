@@ -46,11 +46,13 @@ const ButtonWrapper = styled.button`
   
   ${propToStyle('margin')}
   ${propToStyle('display')}
+  ${propToStyle('justifyContent')}
+  ${propToStyle('alignItems')}
   ${propToStyle('position')}
   ${propToStyle('top')}
   ${propToStyle('right')}
   ${propToStyle('order')}
-
+  ${propToStyle('padding')}
 
 
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
