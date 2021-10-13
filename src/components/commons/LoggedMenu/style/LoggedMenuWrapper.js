@@ -19,17 +19,9 @@ const MenuWrapper = styled.nav`
       /* margin-top: 32px; */
       margin-left: auto;
       margin-right: auto;
-      padding: 18px 28px 0 28px;
-      
+      padding: 18px 28px;
+    `,
 
-      /* max-width: 768px; */
-    `,
-    lg: css`
-      /* max-width: 1160px;  */
-    `,
-    xl: css`
-      /* max-width: 1222px; */
-    `,
   })}
 `;
 
@@ -64,13 +56,12 @@ MenuWrapper.Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 17px;
-  padding: 20px 12px;
-  padding-bottom: 20px;
+  padding: 25px 12px;
   width: 100%;
   position: fixed;
   bottom:0;
   left:0;
+  margin-top: 17px;
   background-color: ${({ theme }) => theme.colors.background.light.color};
   border-radius: 24px 24px 0 0;
 
@@ -79,10 +70,10 @@ MenuWrapper.Menu = styled.div`
   }
 
   .searchInput{
-    background: url('/images/search.png') 5px 7px / 10% no-repeat;
+    background: url('/images/search.png') 5px 7px / 6% no-repeat;
     background-color: ${({ theme }) => theme.colors.background.light.color};
     padding: 7px 20%;
-    width:200px;
+    width:250px;
   }
 
   .searchInput:focus{
@@ -97,12 +88,12 @@ MenuWrapper.Menu = styled.div`
   }
 
   a, button{
-    width:20px;
+    width:30px;
     padding:0;
   }
 
   img{
-    width:100%;
+    width:30px;
   }
 
   .userPic{
@@ -111,12 +102,13 @@ MenuWrapper.Menu = styled.div`
   
   ${breakpointsMedia({
     md: css`
-      width:60%;
+      width:50%;
       margin: 0;
       padding-top: 0;
       padding-bottom: 0;
       position:static;
       background-color: transparent;
+      justify-content: space-between;
 
     .searchDiv{
       display:flex;
