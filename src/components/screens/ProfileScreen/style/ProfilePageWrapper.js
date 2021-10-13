@@ -4,6 +4,7 @@ import breakpointsMedia from '../../../../theme/utils/breakpointMedia';
 const ProfilePageWrapper = styled.main`
 background-color: ${({ theme }) => theme.colors.background.main.color};
 z-index: 1;
+margin-bottom: 100px;
 `;
 
 ProfilePageWrapper.UserInfo = styled.section`

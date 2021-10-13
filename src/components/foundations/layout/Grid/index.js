@@ -146,6 +146,7 @@ const Grid = {
     ${propToStyle('flexDirection')}
     ${propToStyle('paddingRight')}
     ${propToStyle('order')}
+    ${propToStyle('position')}
   `,
 };
 
