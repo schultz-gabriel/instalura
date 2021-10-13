@@ -20,6 +20,7 @@ export default function WebsitePageWrapper({
   pageBoxProps,
   menuProps,
   messages,
+  user,
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
 
@@ -66,7 +67,7 @@ export default function WebsitePageWrapper({
         )}
         {menuProps.logged && (
           <LoggedMenu
-            onCadastrarClick={() => setModalState(true)}
+            user={user}
           />
         )}
         {children}
@@ -86,6 +87,7 @@ WebsitePageWrapper.defaultProps = {
     logged: false,
   },
   messages: {},
+  user: '',
 };
 
 WebsitePageWrapper.propTypes = {
@@ -104,4 +106,5 @@ WebsitePageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   messages: PropTypes.object,
+  user: PropTypes.string,
 };

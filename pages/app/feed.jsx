@@ -1,7 +1,7 @@
 // import React from 'react';
 import authService from '../../src/services/auth/authService';
 import userService from '../../src/services/user/UserService';
-import ProfileScreen from '../../src/components/screens/ProfileScreen';
+import FeedScreen from '../../src/components/screens/FeedPage';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
 export async function getServerSideProps(ctx) {
@@ -32,19 +32,17 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-export default websitePageHOC(ProfileScreen, {
+export default websitePageHOC(FeedScreen, {
   pageWrapperProps: {
     seoProps: {
-      headTitle: 'Perfil',
+      headTitle: 'Feed',
     },
     menuProps: {
       display: false,
       logged: true,
     },
     pageBoxProps: {
-      backgroundImage: 'url(/images/bubbles.svg)',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'bottom right',
+      backgroundColor: '#F2F2F2',
     },
   },
 });
