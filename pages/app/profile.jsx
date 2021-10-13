@@ -1,7 +1,7 @@
 // import React from 'react';
 import authService from '../../src/services/auth/authService';
 import userService from '../../src/services/user/UserService';
-import ProfilePage from '../../src/components/screens/ProfilePage';
+import ProfileScreen from '../../src/components/screens/ProfileScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
 export async function getServerSideProps(ctx) {
@@ -11,6 +11,7 @@ export async function getServerSideProps(ctx) {
   if (hasActiveSession) {
     const session = await auth.getSession();
     const profilePage = await userService.getProfilePage(ctx);
+    const githubInfo = await userService.getGithubInfo(session.username);
     return {
       props: {
         user: {
@@ -18,6 +19,7 @@ export async function getServerSideProps(ctx) {
           ...profilePage.user,
         },
         posts: profilePage.posts,
+        githubInfo,
       },
     };
   }
@@ -30,7 +32,7 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-export default websitePageHOC(ProfilePage, {
+export default websitePageHOC(ProfileScreen, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Perfil',

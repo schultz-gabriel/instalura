@@ -7,8 +7,8 @@ import Box from '../../foundations/layout/Box';
 import Text from '../../foundations/Text';
 
 export default function ProfilePage(props) {
-  const { user } = props;
   const { posts } = props;
+  const { githubInfo } = props;
   return (
     <ProfilePageWrapper>
       <Grid.Container
@@ -26,7 +26,7 @@ export default function ProfilePage(props) {
             {/* {console.log(posts)} */}
             <ProfilePageWrapper.UserInfo>
               <section className="user__image">
-                <img className="profilePic" src={`https://github.com/${user.username}.png`} alt="Foto de perfil" />
+                <img className="profilePic" src={`${githubInfo.avatar}`} alt="Foto de perfil" />
               </section>
               <section className="user__data">
                 <div className="user__data__counter">
@@ -54,7 +54,7 @@ export default function ProfilePage(props) {
                     tag="span"
                     color="tertiary.main"
                   >
-                    {user.following}
+                    {githubInfo.following}
                     <br />
                   </Text>
                   <Text
@@ -73,7 +73,7 @@ export default function ProfilePage(props) {
                     tag="span"
                     color="tertiary.main"
                   >
-                    {user.followers}
+                    {githubInfo.followers}
                     <br />
                   </Text>
                   <Text
@@ -94,7 +94,7 @@ export default function ProfilePage(props) {
                   color="tertiary.main"
                   margin="16px 0 0 0"
                 >
-                  {user.username}
+                  {githubInfo.name}
                 </Text>
                 <Text
                   variant="paragraph1"
@@ -103,7 +103,7 @@ export default function ProfilePage(props) {
                   opacity=".7"
                   margin="0"
                 >
-                  {user.description}
+                  {githubInfo.bio}
                 </Text>
               </section>
             </ProfilePageWrapper.UserInfo>
@@ -153,7 +153,7 @@ export default function ProfilePage(props) {
 }
 
 ProfilePage.propTypes = {
-  user: PropTypes.object.isRequired,
+  githubInfo: PropTypes.object.isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({
     username: PropTypes.string,
     slug: PropTypes.string,
