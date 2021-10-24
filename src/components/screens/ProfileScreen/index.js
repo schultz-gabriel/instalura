@@ -39,8 +39,8 @@ export default function ProfilePage(props) {
                     <br />
                   </Text>
                   <Text
-                    variant="span"
-                    tag="smallestException"
+                    variant="smallestException"
+                    tag="span"
                     color="tertiary.main"
                     opacity=".7"
                   >
@@ -58,8 +58,8 @@ export default function ProfilePage(props) {
                     <br />
                   </Text>
                   <Text
-                    variant="span"
-                    tag="smallestException"
+                    variant="smallestException"
+                    tag="span"
                     color="tertiary.main"
                     opacity=".7"
                   >
@@ -77,8 +77,8 @@ export default function ProfilePage(props) {
                     <br />
                   </Text>
                   <Text
-                    variant="span"
-                    tag="smallestException"
+                    variant="smallestException"
+                    tag="span"
                     color="tertiary.main"
                     opacity=".7"
                   >
@@ -109,9 +109,9 @@ export default function ProfilePage(props) {
             </ProfilePageWrapper.UserInfo>
             <ProfilePageWrapper.UserPics>
               <ul className="userPosts">
-                {posts.slice(0, 30).map((post) => (
-                  <li key={post.id} className="userPosts__post">
-                    <img className="userPosts__post__image" src={post.photoUrl} alt="" />
+                {posts.reverse().slice(0, 30).map((post) => (
+                  <li key={post.createdAt} className="userPosts__post">
+                    <img className="userPosts__post__image" src={post.photoUrl} alt="." />
                     <div className="userPosts__post__feedback">
                       <Box
                         display="flex"

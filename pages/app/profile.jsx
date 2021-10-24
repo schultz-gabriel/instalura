@@ -41,10 +41,5 @@ export default websitePageHOC(ProfileScreen, {
       display: false,
       logged: true,
     },
-    pageBoxProps: {
-      backgroundImage: 'url(/images/bubbles.svg)',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'bottom right',
-    },
   },
 });
