@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,6 +9,7 @@ import LoggedMenu from '../../commons/LoggedMenu';
 import Modal from '../../commons/Modal';
 import Box from '../../foundations/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
+import PostEditor from '../../patterns/PostEditor';
 import SEO from '../../commons/SEO';
 
 import { WebsitePageContext } from './context';
@@ -23,13 +25,13 @@ export default function WebsitePageWrapper({
   user,
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
-
+  const [isPicModalOpen, setPicModalState] = React.useState(false);
   return (
     <WebsitePageContext.Provider
       value={{
-        teste: true,
         toggleModalCadastro: () => {
           setModalState(!isModalOpen);
+          setPicModalState(!isPicModalOpen);
         },
         getCMSContent: (cmsKey) => get(messages, cmsKey),
 
@@ -60,6 +62,21 @@ export default function WebsitePageWrapper({
             />
           )}
         </Modal>
+        <Modal
+          isOpen={isPicModalOpen}
+          onClose={() => {
+            setPicModalState(false);
+          }}
+        >
+          {(propsDoModal) => (
+            <PostEditor
+              propsDoModal={propsDoModal}
+              onClose={() => {
+                setPicModalState(false);
+              }}
+            />
+          )}
+        </Modal>
         {menuProps.display && (
           <Menu
             onCadastrarClick={() => setModalState(true)}
@@ -68,6 +85,7 @@ export default function WebsitePageWrapper({
         {menuProps.logged && (
           <LoggedMenu
             user={user}
+            onPostClick={() => setPicModalState(true)}
           />
         )}
         {children}
@@ -87,7 +105,7 @@ WebsitePageWrapper.defaultProps = {
     logged: false,
   },
   messages: {},
-  user: '',
+  user: {},
 };
 
 WebsitePageWrapper.propTypes = {
@@ -104,7 +122,6 @@ WebsitePageWrapper.propTypes = {
     backgroundPosition: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   messages: PropTypes.object,
-  user: PropTypes.string,
+  user: PropTypes.object,
 };

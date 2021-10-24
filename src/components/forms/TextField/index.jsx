@@ -6,6 +6,7 @@ import Text from '../../foundations/Text';
 import propToStyle from '../../../theme/utils/propToStyle';
 
 const InputWrapper = styled.div`
+  width:100%;
   ${propToStyle('margin')}
 
 `;

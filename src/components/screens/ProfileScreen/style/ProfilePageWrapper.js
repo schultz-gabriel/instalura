@@ -31,7 +31,7 @@ ProfilePageWrapper.UserInfo = styled.section`
         display:flex;
         grid-column: 2;
         grid-row: 1 / 3;
-        justify-content: space-between;
+        justify-content: space-around;
         padding-left: 10px;
         width: 100%;
     }
@@ -81,15 +81,20 @@ ProfilePageWrapper.UserPics = styled.section`
     .userPosts{
         display:flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         /* padding:0; */
         width:100%;
     }
 
     .userPosts__post{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         list-style: none;
         position:relative;
         width:30%;
+        /* padding-top: 75%; */
+        margin-bottom: 3%;
     }
 
     .userPosts__post:hover{
@@ -105,6 +110,8 @@ ProfilePageWrapper.UserPics = styled.section`
     }
 
     .userPosts__post__image{
+        object-fit: cover;
+        height: 100%;
         width:100%;
         transition: ${({ theme }) => theme.transition};
     }
@@ -125,6 +132,26 @@ ProfilePageWrapper.UserPics = styled.section`
         filter: invert(1);
         width: 20px;
     }
+
+    ${breakpointsMedia({
+    xs: css`
+    .userPosts__post{
+        width:30%;
+        height:91px;
+    }
+    `,
+    sm: css`
+     .userPosts__post{
+         height:91px;
+     }
+     `,
+    md: css`
+     .userPosts__post{
+         height:230px;
+     }
+
+     `,
+  })}
 `;
 
 export { ProfilePageWrapper as default };

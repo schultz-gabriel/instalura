@@ -11,7 +11,7 @@ export default function SEO({ headTitle }) {
 
   const description = 'Aprenda Programação, Front-end, Data Science, UX, DevOps, Marketing, Inovação e Gestão na maior plataforma de tecnologia do Brasil';
   const image = 'https://i.imgur.com/OuW7vVT.png';
-  const urlBase = 'urldomeuprojeto.com.br';
+  const urlBase = 'instalura.com.br';
 
   return (
     <Head>

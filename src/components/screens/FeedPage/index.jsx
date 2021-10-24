@@ -33,7 +33,7 @@ const friends = [
 export default function FeedScreen(props) {
   const { posts } = props;
   const { githubInfo } = props;
-  // console.log(githubInfo);
+  // console.log(posts);
   return (
     <FeedWrapper>
       <Grid.Container
@@ -49,8 +49,8 @@ export default function FeedScreen(props) {
             flexDirection="column"
           >
             <ul className="posts">
-              {posts.slice(0, 30).map((post) => (
-                <li key={post.id} className="posts__post">
+              {posts.reverse().slice(0, 30).map((post) => (
+                <li key={post.createdAt} className="posts__post">
                   <section className="posts__post-header">
                     <Link
                       href="/app/profile"
