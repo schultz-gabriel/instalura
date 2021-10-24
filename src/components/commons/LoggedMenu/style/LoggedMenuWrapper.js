@@ -99,6 +99,27 @@ MenuWrapper.Menu = styled.div`
   .userPic{
     border-radius: 50%;
   }
+
+  .header__userButton{
+    position:relative;
+    /* display:inline-block; */
+  }
+
+  .header__userButton_modal{
+    display: none;
+    flex-direction:column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: ${({ theme }) => theme.transition};
+    background-color: ${({ theme }) => theme.colors.background.main.color};
+  }
+
+  .header__userButton:hover .header__userButton_modal{
+    display:flex;
+
+  }
   
   ${breakpointsMedia({
     md: css`
@@ -111,7 +132,8 @@ MenuWrapper.Menu = styled.div`
       justify-content: space-between;
 
     .searchDiv{
-      display:flex;
+      display:block;
+      width:auto;
   }
 
   .addPicButton{

@@ -18,6 +18,9 @@ const ButtonDefault = css`
 `;
 
 const ButtonWrapper = styled.button`
+  display:flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -53,7 +56,8 @@ const ButtonWrapper = styled.button`
   ${propToStyle('right')}
   ${propToStyle('order')}
   ${propToStyle('padding')}
-
+  ${propToStyle('flexGrow')}
+  ${propToStyle('flexDirection')}
 
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover,
@@ -62,13 +66,15 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-function Button({ href, children, ...props }) {
+function Button({
+  href, children, onClick, ...props
+}) {
   const hasHref = Boolean(href);
   const tag = hasHref ? Link : 'button';
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <ButtonWrapper as={tag} href={href} {...props}>
+    <ButtonWrapper as={tag} href={href} {...props} onClick={onClick}>
       {children}
     </ButtonWrapper>
   );
@@ -76,11 +82,13 @@ function Button({ href, children, ...props }) {
 
 Button.defaultProps = {
   href: undefined,
+  onClick: () => {},
 };
 
 Button.propTypes = {
   href: PropTypes.string,
   children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
 };
 
 export { Button as default };
