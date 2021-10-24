@@ -20,8 +20,8 @@ function FormContent(onClose) {
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
 
   const [userInfo, setUserInfo] = React.useState({
-    usuario: 'omariosouto1002',
-    nome: 'Mario Souto',
+    usuario: '',
+    nome: '',
   });
 
   const handleChange = useCallback(
