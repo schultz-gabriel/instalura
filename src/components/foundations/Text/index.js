@@ -53,6 +53,7 @@ const TextBase = styled.span`
   ${propToStyle('marginBottom')}
   ${propToStyle('margin')}
   ${propToStyle('opacity')}
+  ${propToStyle('verticalAlign')}
 `;
 
 export default function Text({

@@ -9,7 +9,7 @@ import LoggedMenu from '../../commons/LoggedMenu';
 import Modal from '../../commons/Modal';
 import Box from '../../foundations/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
-import PostEditor from '../../patterns/PostEditor';
+import PostEditor from '../../patterns/FormPost';
 import SEO from '../../commons/SEO';
 
 import { WebsitePageContext } from './context';

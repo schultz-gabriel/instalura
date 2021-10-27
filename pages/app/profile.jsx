@@ -1,7 +1,7 @@
 // import React from 'react';
 import authService from '../../src/services/auth/authService';
 import userService from '../../src/services/user/UserService';
-import ProfileScreen from '../../src/components/screens/ProfileScreen';
+import ProfileScreen from '../../src/components/screens/app/ProfileScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
 export async function getServerSideProps(ctx) {
