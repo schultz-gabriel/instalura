@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { Lottie } from '@crello/react-lottie';
 import * as yup from 'yup';
-import postService from '../../../services/post/PostService';
+import userService from '../../../services/user/UserService';
 import useForm from '../../../infra/hooks/forms/useForm';
 import PostEditorWrapper from './style/FormPostWrapper';
 import Button from '../../commons/Button';
@@ -56,7 +56,7 @@ function FormPost({ onClose }) {
       form.setIsFormDisabled(true);
       setIsFormSubmited(true);
       setPostStatus(formStates.LOADING);
-      postService.postPhoto({
+      userService.postPhoto({
         photoUrl: values.photoUrl,
         filter: values.filter,
         description: values.description,
@@ -75,6 +75,7 @@ function FormPost({ onClose }) {
           form.setIsFormDisabled(false);
           setPostStatus(formStates.DEFAULT);
           router.push('/app/feed');
+          onClose();
         });
     },
     async validateSchema(values) {

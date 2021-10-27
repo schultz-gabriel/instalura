@@ -3,13 +3,12 @@ import HttpClient from '../../infra/http/HttpClient';
 import authService from '../auth/authService';
 
 const BASE_URL = isStagingEnv
-  ? 'https://instalura-api.vercel.app/'
-  : 'https://instalura-api.vercel.app/';
+  ? 'https://instalura-api.vercel.app'
+  : 'https://instalura-api.vercel.app';
 
 const userService = {
   async getProfilePage(ctx) {
     const url = `${BASE_URL}/api/users/posts`;
-    console.log(url);
     try {
       const token = await authService(ctx).getToken();
       const response = await HttpClient(url, {
@@ -18,12 +17,6 @@ const userService = {
         },
       });
       return {
-        user: {
-          totalLikes: 100,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          followers: 2000,
-          following: 100,
-        },
         posts: response.data,
       };
     } catch (err) {
@@ -49,6 +42,45 @@ const userService = {
       };
     }
     return infoGithub.message;
+  },
+  async postPhoto(data) {
+    const url = `${BASE_URL}/api/posts`;
+    try {
+      const token = await authService().getToken();
+      const response = await HttpClient(url, {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body: data,
+      });
+
+      if (response.data) {
+        return response.data;
+      }
+      return undefined;
+    } catch (err) {
+      return undefined;
+    }
+  },
+  async likeIt(id) {
+    const url = `${BASE_URL}/api/posts/${id}/like`;
+    try {
+      const token = await authService().getToken();
+      const response = await HttpClient(url, {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body: {},
+      });
+      if (response.data) {
+        return response.data;
+      }
+      return undefined;
+    } catch (err) {
+      return undefined;
+    }
   },
 };
 
