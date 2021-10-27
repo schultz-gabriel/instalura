@@ -58,6 +58,9 @@ const ButtonWrapper = styled.button`
   ${propToStyle('padding')}
   ${propToStyle('flexGrow')}
   ${propToStyle('flexDirection')}
+  ${propToStyle('width')}
+  ${propToStyle('height')}
+
 
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover,
