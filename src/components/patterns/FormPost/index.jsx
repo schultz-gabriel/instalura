@@ -142,6 +142,7 @@ function FormPost({ onClose }) {
                   position="relative"
                   right="0"
                   type="button"
+                  id="setPreviewButton"
                 >
                   =&gt;
                 </Button>
@@ -167,6 +168,7 @@ function FormPost({ onClose }) {
                       type="button"
                       value={item.title}
                       name="filter"
+                      id={item.title}
                       onClick={(event) => {
                         const button = event.target.closest('button');
                         const target = button;
